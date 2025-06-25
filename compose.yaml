@@ -1,0 +1,12 @@
+services:
+  postgres-poc:
+    image: postgres:17.5-alpine
+    container_name: postgres-poc
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: poc
+      POSTGRES_PASSWORD: poc
+      POSTGRES_DB: poc-git
+    volumes:
+      - ./init-poc-git.sql:/docker-entrypoint-initdb.d/init.sql
